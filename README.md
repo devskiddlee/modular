@@ -44,12 +44,14 @@ You can, at any point, set a tick cap which caps the ticks per second that get r
 ```cpp
 Modular::ScheduleDelayedTask(G::S.triggerbotDelay, "schedule_shoot_fn", [](const TickEvent& event) {
 	mouse_event(0x0002, 0, 0, 0, GetMessageExtraInfo());
+
 	Modular::ScheduleDelayedTask(10.f, "release_shoot_btn", [](const TickEvent& event) {
 		mouse_event(0x0004, 0, 0, 0, GetMessageExtraInfo());
-    Modular::ScheduleDelayedTask(..., "free_shoot_fn", [](const TickEvent& event) {
-      free_to_shoot = true;
-    });
-  });
+
+		Modular::ScheduleDelayedTask(..., "free_shoot_fn", [](const TickEvent& event) {
+			free_to_shoot = true;
+		});
+	});
 });
 ```
 While running the tick loop you might want to schedule a task that gets run at a later time.
@@ -62,10 +64,10 @@ To do this you call ```Modular::ScheduleDelayedTask(...)``` with following param
 ```cpp
 Modular::AddKeyEventHandler(VK_INSERT, [](bool pressed) {
 	if (pressed) {
-    // button was pressed
+		// button was pressed
 	} else {
-    // button was released
-  }
+		// button was released
+	}
 });
 ```
 While technically being a seperate event type, Key Events get checked and called during tick calls.
@@ -139,7 +141,7 @@ TimeReport* rep = nullptr;
 size_t size = 0;
 Modular::GetTickTimeReports(&rep, &size);
 for (size_t i = 0; i < size; i++) {
-  std::cout << '[' << i << "] : " << rep[i].avgTime << "ms" << '\n';
+	std::cout << '[' << i << "] : " << rep[i].avgTime << "ms" << '\n';
 }
 ```
 ```cpp
