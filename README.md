@@ -1,5 +1,6 @@
 # modular
 A c++ library for modular handling of events made primarly for cheat clients
+<br>An example of this library is found in my cs2 cheat client [inverto](https://github.com/devskiddlee/inverto-v2)
 
 # Usage
 Download the [header file](https://raw.githubusercontent.com/devskiddlee/modular/refs/heads/main/modular.h)
